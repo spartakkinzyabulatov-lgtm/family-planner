@@ -1,4 +1,4 @@
-var VERSION = "v6";
+var VERSION = "v7";
 const CACHE = 'family-planner-' + VERSION;
 const CORE = ['./','./index.html','./style.css','./app.js','./model.mjs','./vault.mjs','./storage.mjs','./config.js','./manifest.webmanifest','./icons/icon.svg','./icons/icon-192.png','./icons/icon-512.png','./icons/apple-touch-icon.png'];
 self.addEventListener('install',event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)).then(()=>self.skipWaiting()));});
