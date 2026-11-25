@@ -1,0 +1,24 @@
+[Unit]
+Description=Family Planner API
+After=network.target
+
+[Service]
+Type=simple
+User=family-planner
+Group=family-planner
+WorkingDirectory=/opt/family-planner
+ExecStart=/usr/bin/python3 /opt/family-planner/server.py serve --database /var/lib/family-planner/data.sqlite --port 8787 --origin https://spartakkinzyabulatov-lgtm.github.io
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/family-planner
+CapabilityBoundingSet=
+RestrictSUIDSGID=true
+RestrictAddressFamilies=AF_INET AF_INET6 AF_UNIX
+
+[Install]
+WantedBy=multi-user.target

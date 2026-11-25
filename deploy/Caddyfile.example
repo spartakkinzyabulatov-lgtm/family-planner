@@ -1,0 +1,17 @@
+{
+    admin off
+}
+
+family.193.32.200.27.sslip.io {
+    header {
+        Strict-Transport-Security "max-age=31536000"
+        X-Content-Type-Options "nosniff"
+        Referrer-Policy "no-referrer"
+    }
+    handle /api/* {
+        reverse_proxy 127.0.0.1:8787
+    }
+    handle {
+        respond "Family planner API" 200
+    }
+}
